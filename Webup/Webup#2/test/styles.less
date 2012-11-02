@@ -1,0 +1,40 @@
+@bgColor: #444;
+@color: #fff;
+
+.borderRadius(@value: 5px) {
+   border-radius: @value;
+   -moz-border-radius: @value;
+   -webkit-border-radius: @value;
+}
+
+.base {
+    .borderRadius();
+  background-color: lighten(@bgColor, 10%);
+    color: @color;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    margin: 20px;
+}
+
+#header {
+  .base;
+}
+
+#footer {
+  .base;
+  .borderRadius(15px);
+}
+
+.parent {
+  .base;
+  .inner {
+    font-weight: bold;
+    .child {
+      text-decoration: underline;
+      &:hover {
+         background-color: red;
+      }
+    }
+  }
+}
